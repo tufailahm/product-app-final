@@ -8,12 +8,16 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductInfoComponent } from './components/product-info/product-info.component';
 import { ProductService } from './services/product.service';
 import { OutdatedproductsService } from './services/outdatedproducts.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ContactusComponent } from './components/contactus/contactus.component'
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    AboutusComponent,
+    ContactusComponent
   ],
   imports: [
     BrowserModule,

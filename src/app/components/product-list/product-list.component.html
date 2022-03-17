@@ -1,15 +1,7 @@
 <input type="text" [(ngModel)]="guestName">
 <h1>Welcome {{ guestName}} </h1>
-
-<hr/>
 <h1>All the products</h1>
-<div [ngSwitch]="color">
-    <p *ngSwitchCase="'red'">You have selected red </p>
-    <p *ngSwitchCase="'green'">You have selected green </p>
-    <p *ngSwitchCase="'blue'">You have selected blue </p>
-    <p *ngSwitchCase="'yellow'">You have selected yellow </p>
-
-</div>
+<hr/>
 <div [ngStyle]="{'background-color':'green'}">My Product app</div>
 <!-- <ul>
     <li *ngFor="let p of products">{{p.productId}} - {{p.productName}} -  {{p.quantityOnHand}} - {{ p.price}} </li>
@@ -43,3 +35,10 @@
         <td>{{p.country}}</td>
     </tr>
 </table>
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">You have selected red </p>
+    <p *ngSwitchCase="'green'">You have selected green </p>
+    <p *ngSwitchCase="'blue'">You have selected blue </p>
+    <p *ngSwitchCase="'yellow'">You have selected yellow </p>
+
+</div>
