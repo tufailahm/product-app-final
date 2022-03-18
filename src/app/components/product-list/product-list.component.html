@@ -1,11 +1,13 @@
 <input type="text" [(ngModel)]="guestName">
 <h1>Welcome {{ guestName}} </h1>
 <h1>All the products</h1>
+<font color="green"><h2>{{successMessage}}</h2></font>
 <hr/>
 <div [ngStyle]="{'background-color':'green'}">My Product app</div>
 <!-- <ul>
     <li *ngFor="let p of products">{{p.productId}} - {{p.productName}} -  {{p.quantityOnHand}} - {{ p.price}} </li>
 </ul> -->
+<font color="red"><h2>{{errorMessage}}</h2></font>
 <table border="10" cellspacing="10" cellpadding="10">
     <tr>
         <th>Product Id</th>
@@ -13,6 +15,7 @@
         <th>Quantity On Hand</th>
         <th>Price</th>
         <th>Available</th>
+        <th>Delete</th>
     </tr>
     <tr *ngFor="let product of products">
         <td>{{product.productId}}</td>
@@ -20,6 +23,8 @@
         <td>{{product.quantityOnHand}}</td>
         <td>{{product.price}}</td>
         <td *ngIf="productAvailable">Stocks Available</td>
+        <td ><button class="btn btn-danger" (click)="removeProduct(product.productId)">Delete</button></td>
+
     </tr>
 </table>
 <br/>

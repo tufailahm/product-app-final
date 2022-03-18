@@ -14,20 +14,34 @@ export class ProductListComponent implements OnInit {
   public productAvailable = true;
   public color = "blue";
   productData = new ProductData();
-
+  public errorMessage!: string;
   public guestName: string = "Isha";
+  successMessage!: string
 
   //DI (Dependency Injection)
   constructor(public productService: ProductService) {
-   // this.products = this.productData.getProducts();
-  //  this.products = productService.getProducts();
-    this.productService.getProducts().subscribe((data:any)  => {
-      this.products = data;
-    })
+    // this.products = this.productData.getProducts();
+    //  this.products = productService.getProducts();
   }
 
   ngOnInit(): void {
+      this.refreshProducts();
   }
+
+  removeProduct(productId: number) {
+    this.productService.deleteProduct(productId).subscribe((data: any) => {
+      this.successMessage = 'Product with product id ' + productId + ' deleted successfully';
+      this.refreshProducts();
+    }, err => this.errorMessage = err)
+  }
+
+
+  refreshProducts(){
+    this.productService.getProducts().subscribe((data: any) => {
+      this.products = data;
+    }, err => this.errorMessage = err)
+  }
+
 
   getColor(country: string) {
     switch (country) {
