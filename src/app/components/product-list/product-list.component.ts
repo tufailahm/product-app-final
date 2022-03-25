@@ -17,6 +17,9 @@ export class ProductListComponent implements OnInit {
   public errorMessage!: string;
   public guestName: string = "Isha";
   successMessage!: string
+  mobileNumber: string = "789876543211"
+  currentDate = new Date();
+
 
   //DI (Dependency Injection)
   constructor(public productService: ProductService) {
@@ -25,18 +28,21 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.refreshProducts();
+    this.refreshProducts();
   }
 
   removeProduct(productId: number) {
     this.productService.deleteProduct(productId).subscribe((data: any) => {
       this.successMessage = 'Product with product id ' + productId + ' deleted successfully';
-      this.refreshProducts();
-    }, err => this.errorMessage = err)
+
+    }, err => {
+     // this.errorMessage = err;
+      this.refreshProducts()
+    })
   }
 
 
-  refreshProducts(){
+  refreshProducts() {
     this.productService.getProducts().subscribe((data: any) => {
       this.products = data;
     }, err => this.errorMessage = err)

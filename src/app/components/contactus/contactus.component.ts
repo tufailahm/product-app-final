@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusComponent implements OnInit {
 
+  public officeMobile:string = "836587654321"
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,8 @@
 <input type="text" [(ngModel)]="guestName">
-<h1>Welcome {{ guestName}} </h1>
+<h1>Current Date and Time is : {{currentDate | date:"MM/dd/yy"}}</h1>
+<h1>Welcome {{ guestName | slice:0:4}} </h1>
 <h1>All the products</h1>
+<h1>Contact me at : {{ mobileNumber | phoneNumber:'P' }}</h1>
 <font color="green"><h2>{{successMessage}}</h2></font>
 <hr/>
 <div [ngStyle]="{'background-color':'green'}">My Product app</div>
@@ -19,9 +21,9 @@
     </tr>
     <tr *ngFor="let product of products">
         <td>{{product.productId}}</td>
-        <td>{{product.productName}}</td>
+        <td>{{product.productName | uppercase}}</td>
         <td>{{product.quantityOnHand}}</td>
-        <td>{{product.price}}</td>
+        <td>{{product.price | currency:'US' }}</td>
         <td *ngIf="productAvailable">Stocks Available</td>
         <td ><button class="btn btn-danger" (click)="removeProduct(product.productId)">Delete</button></td>
 

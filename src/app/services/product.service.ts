@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, retry,throwError } from 'rxjs';
 
 import { Product } from '../models/product';
-const productURL = "http://localhost:3000/product"
+//const productURL = "http://localhost:3000/product"
+const productURL = "http://localhost:5050/product"
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +23,7 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(productURL)
     .pipe(
-      retry(1),
+      retry(0),
       catchError(this.errorHandler)
     );
   }
@@ -32,7 +33,7 @@ export class ProductService {
   getProduct(productId: number): Observable<Product> {
     return this.httpClient.get<Product>(`${productURL}/${productId}`)
     .pipe(
-      retry(1),
+      retry(0),
       catchError(this.errorHandler)
     );
   }
@@ -42,7 +43,7 @@ export class ProductService {
   deleteProduct(productId: number): Observable<Product> {
     return this.httpClient.delete<Product>(`${productURL}/${productId}`)
     .pipe(
-      retry(1),
+      retry(0),
       catchError(this.errorHandler)
     );
   }
@@ -52,7 +53,7 @@ export class ProductService {
   saveProduct(product:Product): Observable<Product> {
     return this.httpClient.post<Product>(productURL,product,this.httpOptions)
     .pipe(
-      retry(1),
+      retry(0),
       catchError(this.errorHandler)
     );
   }
@@ -63,7 +64,7 @@ export class ProductService {
   updateProduct(productId:number,product:Product): Observable<Product> {
     return this.httpClient.put<Product>(`${productURL}/${productId}`,product,this.httpOptions)
     .pipe(
-      retry(1),
+      retry(0),
       catchError(this.errorHandler)
     );
   }

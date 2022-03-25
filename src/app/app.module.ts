@@ -13,7 +13,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { UserComponent } from './components/user/user.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
-import { ProductCreateComponent } from './components/product-create/product-create.component'
+import { ProductCreateComponent } from './components/product-create/product-create.component';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { ProductCreateComponent } from './components/product-create/product-crea
     ContactusComponent,
     UserComponent,
     ProductAddComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    PhoneNumberPipe
   ],
   imports: [
     BrowserModule,
